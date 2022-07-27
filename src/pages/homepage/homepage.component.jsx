@@ -1,4 +1,5 @@
 import React from "react";
+import Projects from "../../components/projects/projects.component";
 import SideNav from "../../components/sidenav/sidenav.component";
 import './homepage.styles.css';
 
@@ -9,7 +10,7 @@ const HomePage = () => {
                 <SideNav />
             </div>
             <div className="todo-sec">
-                
+                <Projects />
             </div>
         </div>
     )
