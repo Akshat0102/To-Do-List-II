@@ -49,42 +49,56 @@ const Projects = () => {
             </div>
             <div className="card-sec">
                 <div className="todo section">
-                    <div className="head-sec">
-                        <p className="head-title">To do</p>
-                        <div className="count">
-                            <p>1</p>
+                    <div className="wrap">
+                        <div className="head-sec">
+                            <p className="head-title">To do</p>
+                            <div className="count">
+                                <p>1</p>
+                            </div>
+                        </div>
+                        <div className="add-sec">
+                            <button>+</button>
+                        </div>
+                        <div className="tasks-sec">
+                            {
+                                taskArr.map(task => (
+                                    <TaskCard id={task.id} title={task.title} desc={task.description} />
+                                ))
+                            }
                         </div>
                     </div>
-                    <button className="add-sec">+</button>
-                    {
-                        taskArr.map(task => (
-                            <TaskCard id={task.id} title={task.title} desc={task.description} />
-                        ))
-                    }
                 </div>
                 <div className="inprogress section">
-                    <div className="head-sec">
-                        <p className="head-title">In Progress</p>
-                        <div className="count">
-                            <p>2</p>
+                    <div className="wrap">
+                        <div className="head-sec">
+                            <p className="head-title">In Progress</p>
+                            <div className="count">
+                                <p>2</p>
+                            </div>
                         </div>
-                    </div>
-                    <button className="add-sec">+</button>
-                    {/* {board.map((task) => {
+                        <div className="add-sec">
+                            <button>+</button>
+                        </div>
+                        {/* {board.map((task) => {
                         return <TaskCard title={task.title} key={task.id} desc={task.description} />;
                     })} */}
+                    </div>
                 </div>
                 <div className="completed section">
-                    <div className="head-sec">
-                        <p className="head-title">Completed</p>
-                        <div className="count">
-                            <p>0</p>
+                    <div className="wrap">
+                        <div className="head-sec">
+                            <p className="head-title">Completed</p>
+                            <div className="count">
+                                <p>0</p>
+                            </div>
                         </div>
-                    </div>
-                    <button className="add-sec">+</button>
-                    {/* {board.map((task) => {
+                        <div className="add-sec">
+                            <button>+</button>
+                        </div>
+                        {/* {board.map((task) => {
                         return <TaskCard title={task.title} key={task.id} desc={task.description} />;
                     })} */}
+                    </div>
                 </div>
             </div>
         </div>

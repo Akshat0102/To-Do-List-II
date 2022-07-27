@@ -47,7 +47,7 @@
     width: 36px;
 }
 
-.profile p{
+.profile p {
     font-family: Poppins-Regular;
     color: #3A3A3A;
     font-size: 16px;
@@ -61,30 +61,30 @@
     align-items: flex-end;
 }
 
-.pro-title{
+.pro-title {
     width: 10%;
 }
 
-.pro-title p{
+.pro-title p {
     color: #212121;
     font-family: Poppins-Medium;
     font-size: 22px;
 }
 
-.filter{
+.filter {
     display: flex;
     width: 7%;
     justify-content: space-between;
     align-items: center;
 }
 
-.filter p{
+.filter p {
     color: #3A3A3A;
     font-family: Poppins-Regular;
     font-size: 16px;
 }
 
-.filter img{
+.filter img {
     cursor: pointer;
 }
 
@@ -95,7 +95,7 @@
     justify-content: space-between;
 }
 
-.todo{
+.todo {
     height: 100%;
     width: 31%;
     display: flex;
@@ -105,7 +105,14 @@
     align-items: center;
 }
 
-.inprogress{
+.wrap {
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow-y: scroll;
+}
+
+.inprogress {
     height: 100%;
     width: 31%;
     display: flex;
@@ -115,7 +122,7 @@
     align-items: center;
 }
 
-.completed{
+.completed {
     height: 100%;
     width: 31%;
     display: flex;
@@ -125,21 +132,22 @@
     align-items: center;
 }
 
-.head-sec{
+.head-sec {
     width: 85%;
     height: 15%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
 }
 
-.head-title{
+.head-title {
     font-family: Poppins-Medium;
     font-size: 14px;
     color: #212121;
 }
 
-.count{
+.count {
     background-color: #ECF3F3;
     height: 26px;
     width: 23px;
@@ -149,15 +157,21 @@
     align-items: center;
 }
 
-.count p{
+.count p {
     font-family: Poppins-Regular;
     color: #329C89;
     font-size: 14px;
 }
 
-.add-sec{
+.add-sec {
     width: 85%;
     height: 10%;
+    margin: auto;
+}
+
+.add-sec button {
+    height: 100%;
+    width: 100%;
     background-color: #ECF3F3;
     border-radius: 8px;
     outline: none;
@@ -166,6 +180,17 @@
     font-size: 24px;
     font-family: Poppins-Light;
     cursor: pointer;
+}
+
+.tasks-sec{
+    display: flex;
+    height: auto;
+    min-height: fit-content;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
 }
 
 /* hiding scrollbar */
