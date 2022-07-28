@@ -2,31 +2,31 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const { hashSync, compareSync } = require('bcrypt');
 
-module.exports.regUser = async(req, res) => {
+module.exports.regUser = async (req, res) => {
     const user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: hashSync(req.body.password, 10),
+        password: hashSync(req.body.password, 10)
     })
     user.save()
-    .then(user => {
-        res.send({
-            success: true,
-            msg: "User created successfully!",
-            user
+        .then(user => {
+            res.send({
+                success: true,
+                msg: "User created successfully!",
+                user
+            })
+        }).catch(err => {
+            res.send({
+                success: false,
+                msg: "Something went wrong",
+                error: err
+            })
         })
-    }) .catch(err => {
-        res.send({
-            success: false,
-            msg: "Something went wrong",
-            error: err
-        })
-    })
 }
 
-module.exports.logUser = async(req, res) => {
-    const user = await User.findOne({email: req.body.email})
-    if(!user){
+module.exports.logUser = async (req, res) => {
+    const user = await User.findOne({ email: req.body.email })
+    if (!user) {
         return res.status(401).send({
             success: false,
             msg: "User requested isn't registered"
@@ -34,7 +34,7 @@ module.exports.logUser = async(req, res) => {
     }
 
     //else if we have the User
-    if(!compareSync(req.body.password, user.password)){
+    if (!compareSync(req.body.password, user.password)) {
         return res.status(401).send({
             success: false,
             msg: "Invalid username/password"
@@ -43,12 +43,12 @@ module.exports.logUser = async(req, res) => {
 
     //if login success then we send a JWT token
     const payload = {
-        username: user.username,
+        email: user.email,
         id: user._id
     }
 
     //req.user = user
-    const token = jwt.sign(payload, process.env.SECRET, {expiresIn: "1h"});
+    const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
     return res.status(200).send({
         success: true,
         msg: "Logged In Successfully",
