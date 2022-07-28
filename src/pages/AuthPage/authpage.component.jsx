@@ -3,10 +3,22 @@ import './authpage.styles.css';
 import LoginArt from '../../assets/login-img/artwork-login.svg';
 import Login from "../../components/login/login.component";
 import Signup from "../../components/signup/signup.component";
+import axios from 'axios';
 
 const AuthPage = () => {
 
     const [login, setLogin] = useState(true);
+    
+    const [username, setUsername] = useState("");
+    const [signpassword, setSignPassword] = useState("");
+    const [signemail, setSignEmail] = useState("");
+
+    const [logemail, setLogEmail] = useState("");
+    const [logpassword, setLogPassword] = useState("");
+
+    const handleSignup = async () => {
+        const res = await axios.post('https://localhost')
+    }
 
     return (
         <div className="auth">
