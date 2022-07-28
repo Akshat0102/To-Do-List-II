@@ -7,15 +7,15 @@ const { configDB } = require("./config/database");
 const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 9000;
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const authRoutes = require('./routes/auth.routes');
 
 configDB();
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
     secret: "secret",
     resave: false,

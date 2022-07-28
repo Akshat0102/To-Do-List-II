@@ -43,7 +43,7 @@ module.exports.logUser = async (req, res) => {
 
     //if login success then we send a JWT token
     const payload = {
-        email: user.email,
+        username: user.username,
         id: user._id
     }
 
