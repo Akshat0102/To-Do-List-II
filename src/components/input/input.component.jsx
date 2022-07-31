@@ -1,7 +1,7 @@
 import React from 'react';
 import './input.styles.css';
 
-const InputField = ({ type, name, placeholder, step, defaultValue, setterFunction }) => {
+const InputField = ({ type, placeholder, step, defaultValue, setterFunction }) => {
     return (
         <div className="field">
             <div className='form'>

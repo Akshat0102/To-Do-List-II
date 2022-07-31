@@ -1,15 +1,8 @@
 import React from "react";
 import './login.styles.css';
 import InputField from "../input/input.component";
-import { useNavigate } from "react-router";
 
-const Login = () => {
-
-    const navigate = useNavigate();
-
-    const navigateToHome = () => {
-        navigate("/home")
-    }
+const Login = ({setLogEmail, setLogPassword, handleLogin}) => {
 
     return (
         <div className="login">
@@ -18,13 +11,13 @@ const Login = () => {
                 <p className="need-mail">We need your email and password</p>
             </div>
             <div className="login-input">
-                <InputField placeholder={"Email"} type={"password"} />
+                <InputField placeholder={"Email"} type={"email"} setterFunction={setLogEmail}/>
             </div>
             <div className="login-input">
-                <InputField placeholder={"Password"} type={"password"} />
+                <InputField placeholder={"Password"} type={"password"} setterFunction={setLogPassword}/>
             </div>
             <div className="sub-btn-login">
-                <button onClick={navigateToHome}>Log In</button>
+                <button onClick={handleLogin}>Log In</button>
             </div>
             <div className="rem-me">
                 <input type="checkbox" />

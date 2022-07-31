@@ -14,7 +14,12 @@ const SideNav = () => {
     const navigate = useNavigate();
 
     const navigateToAuth = () => {
-        navigate("/")
+        const token = localStorage.getItem('token');
+
+        if(token){
+            localStorage.removeItem('token');
+            navigate("/")
+        }
     };
 
     return (
