@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 9000;
 const bodyParser = require("body-parser");
 
 const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
 
 configDB();
 
@@ -26,6 +27,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport");
 
+app.use('/', authRoutes);
+app.use('/', userRoutes);
+
 app.get('/', (req, res) => {
     res.send("WELCOME TO TASKEZ BACKEND");
 })
@@ -33,5 +37,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running at ${PORT}`);
 })
-
-app.use('/', authRoutes);
