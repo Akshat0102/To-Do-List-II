@@ -14,7 +14,11 @@ const userRoutes = require('./routes/user.routes');
 
 configDB();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://todo-taskez.netlify.app/',
+    optionsSuccessStatus: 200
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
