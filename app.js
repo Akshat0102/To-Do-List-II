@@ -16,7 +16,11 @@ configDB();
 
 app.use(cors({
     origin: 'https://todo-taskez.netlify.app/',
-    optionsSuccessStatus: 200
+    allowedHeaders: '*',
+    methods: '*',
+    exposedHeaders: '*',
+    optionsSuccessStatus: 200,
+    credentials: true
 }));
 
 app.use(bodyParser.json());
